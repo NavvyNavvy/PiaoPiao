@@ -1,6 +1,8 @@
 ﻿using Data.Globals;
 using Data.XML;
-using SharpDX.Direct3D9;
+using Vortice.Direct3D9;
+using Data.DXRender;
+using Texture9 = Data.DXRender.Texture9;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -69,7 +71,7 @@ namespace Data.Resources
                 pic1.Add(t1);
             }
         }
-        public Texture Load_Bitmap_FromFile(string path, string file)
+        public Texture9 Load_Bitmap_FromFile(string path, string file)
         {
             if (file == null)
             {

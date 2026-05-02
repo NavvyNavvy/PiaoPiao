@@ -3,7 +3,8 @@ using Data.Globals;
 using Data.Inputs;
 using Data.PPDevices;
 using Data.Resources;
-using SharpDX.Direct3D9;
+using Data.DXRender;
+using Texture = Data.DXRender.Texture9;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Color = SharpDX.Color;
+using Color = Vortice.Mathematics.Color4;
 
 namespace Data.Windows
 {
@@ -46,8 +47,10 @@ namespace Data.Windows
         }
         public void Load()
         {
-            if (showNum == null) showNum = new List<int>();
-            if (windows == null) windows = new List<Window>();
+            // Clear existing windows before reloading
+            windows.Clear();
+            showNum.Clear();
+            Window.Index = 0;
 
             Input = Global.GetInput();
             SpriteBase.Input = Input;

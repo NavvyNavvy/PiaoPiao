@@ -1,6 +1,8 @@
 ﻿using Data.Globals;
 using Data.XML;
-using SharpDX.Direct3D9;
+using Vortice.Direct3D9;
+using Data.DXRender;
+using Texture9 = Data.DXRender.Texture9;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,7 +61,7 @@ namespace Data.Resources
             if (pic_poi.bitmap == null) return null;
             return pic_poi;
         }
-        public Texture GetMapBitmap(int typeID, int bitmapID)
+        public Texture9 GetMapBitmap(int typeID, int bitmapID)
         {
             var pic = this.pic.pic1;
             if (typeID > 0 && typeID < pic.Count)

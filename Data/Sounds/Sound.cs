@@ -1,5 +1,4 @@
 ﻿using Data.Globals;
-using Microsoft.DirectX.DirectSound;
 using System;
 using System.Collections.Generic;
 using System.Linq;

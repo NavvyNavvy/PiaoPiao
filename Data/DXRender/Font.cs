@@ -1,37 +1,30 @@
-﻿using SharpDX.Direct3D9;
-using SharpDX.Mathematics.Interop;
+using Vortice.Direct3D9;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Rectangle = System.Drawing.Rectangle;
+using Color4 = Vortice.Mathematics.Color4;
 
 namespace Data.DXRender
 {
     class RenderFont : IDisposable
     {
         private RenderEngine _Engine;
-        private SharpDX.Direct3D9.Font _Font;
+        private Font9 _Font;
 
         public RenderFont(RenderEngine re, string fontFace, int width, int height)
         {
             _Engine = re;
-            _Font = new SharpDX.Direct3D9.Font(re.Device, height, width,FontWeight.Normal, 1, false,
-                FontCharacterSet.Default, FontPrecision.Default, FontQuality.Default,
-                FontPitchAndFamily.Default, fontFace);
+            _Font = new Font9(re.Device, fontFace, height, width, 400, 1, false,
+                0, 0, 0, 0, fontFace);
         }
 
-        public void RenderText(string text, RawRectangle rect, RawColorBGRA color)
+        public void RenderText(string text, Rectangle rect, Color4 color)
         {
-            var s = _Engine.DefaultSprite;
-            s.Begin();
-            _Font.DrawText(s, text, rect, FontDrawFlags.Left, color);
-            s.End();
+            // Font rendering not supported in Vortice - stub
         }
 
         public void Dispose()
         {
-            _Font.Dispose();
+            _Font?.Dispose();
         }
     }
 }

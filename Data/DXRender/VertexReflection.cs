@@ -1,68 +1,57 @@
-﻿using SharpDX;
-using SharpDX.Direct3D9;
+using Vortice.Direct3D9;
+using System.Numerics;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data.DXRender
 {
     public class VertexFieldAttribute : Attribute
     {
-        private DeclarationUsage usage;
+        private DeclarationUsage _usage;
 
         public VertexFieldAttribute(DeclarationUsage usage)
         {
-            this.usage = usage;
+            _usage = usage;
         }
 
-        public DeclarationUsage Usage
-        {
-            get
-            {
-                return usage;
-            }
-        }
+        public DeclarationUsage Usage => _usage;
     }
 
     public static class VertexReflection
     {
         private static DeclarationType MapType(Type type)
         {
-            if (type.Equals(typeof(Vector2)))
-            {
+            if (type == typeof(Vector2))
                 return DeclarationType.Float2;
-            }
-            else if (type.Equals(typeof(Vector3)))
-            {
+            if (type == typeof(Vector3))
                 return DeclarationType.Float3;
-            }
-            else if (type.Equals(typeof(Vector4)))
-            {
+            if (type == typeof(Vector4))
                 return DeclarationType.Float4;
-            }
             return DeclarationType.Unused;
         }
 
-        public static VertexDeclaration CreateVertexDeclaration<T>(Device device) where T : struct
+        public static IDirect3DVertexDeclaration9 CreateVertexDeclaration<T>(IDirect3DDevice9 device) where T : struct
         {
-            List<VertexElement> ret = new List<VertexElement>();
+            var ret = new List<VertexElement>();
             var type = typeof(T);
+
             foreach (var field in type.GetFields())
             {
-                var attr = Utilities.GetCustomAttribute<VertexFieldAttribute>(field);
+                var attr = field.GetCustomAttribute<VertexFieldAttribute>();
                 if (attr != null)
                 {
                     short offset = (short)Marshal.OffsetOf(type, field.Name).ToInt32();
-                    DeclarationType dt = MapType(field.FieldType);
+                    var dt = MapType(field.FieldType);
                     ret.Add(new VertexElement(0, offset, dt, DeclarationMethod.Default, attr.Usage, 0));
                 }
             }
-            ret.Sort((VertexElement a, VertexElement b) => a.Offset.CompareTo(b.Offset));
+
+            ret.Sort((a, b) => a.Offset.CompareTo(b.Offset));
             ret.Add(VertexElement.VertexDeclarationEnd);
-            return new VertexDeclaration(device, ret.ToArray());
+
+            return device.CreateVertexDeclaration(ret.ToArray());
         }
     }
 }

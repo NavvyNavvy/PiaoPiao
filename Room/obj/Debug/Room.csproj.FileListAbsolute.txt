@@ -6,3 +6,17 @@ F:\VS2017.data\ppNetTest\PiaoPiao\PiaoPiao\Room\obj\Debug\Room.csprojResolveAsse
 F:\VS2017.data\ppNetTest\PiaoPiao\PiaoPiao\Room\bin\Debug\ClientPublic.dll
 F:\VS2017.data\ppNetTest\PiaoPiao\PiaoPiao\Room\bin\Debug\ClientPublic.pdb
 F:\VS2017.data\ppNetTest\PiaoPiao\PiaoPiao\Room\obj\Debug\Room.csproj.CoreCompileInputs.cache
+C:\cproject\PiaoPiao\Room\obj\Debug\Room.dll
+C:\cproject\PiaoPiao\Room\obj\Debug\Room.pdb
+C:\cproject\PiaoPiao\Room\bin\Debug\Room.dll
+C:\cproject\PiaoPiao\Room\bin\Debug\Room.pdb
+C:\cproject\PiaoPiao\Room\bin\Debug\ClientPublic.dll
+C:\cproject\PiaoPiao\Room\bin\Debug\mscorlib.dll
+C:\cproject\PiaoPiao\Room\bin\Debug\ClientPublic.pdb
+C:\cproject\PiaoPiao\Room\bin\Debug\zh-Hans\mscorlib.resources.dll
+C:\cproject\PiaoPiao\Room\bin\Debug\normidna.nlp
+C:\cproject\PiaoPiao\Room\bin\Debug\normnfc.nlp
+C:\cproject\PiaoPiao\Room\bin\Debug\normnfd.nlp
+C:\cproject\PiaoPiao\Room\bin\Debug\normnfkc.nlp
+C:\cproject\PiaoPiao\Room\bin\Debug\normnfkd.nlp
+C:\cproject\PiaoPiao\Room\obj\Debug\Room.csprojResolveAssemblyReference.cache

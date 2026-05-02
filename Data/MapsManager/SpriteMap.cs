@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Texture = SharpDX.Direct3D9.Texture;
+using Data.DXRender;
 
 namespace Data.MapsManager
 {
@@ -119,7 +119,7 @@ namespace Data.MapsManager
                 frame = (count * 16 / pic.frameSpan) % pic.frameNum;
             }
         }
-        public virtual Texture GetBitmap()
+        public virtual Texture9 GetBitmap()
         {
             return pic.bitmap;
         }
@@ -2259,4 +2259,90 @@ namespace Data.MapsManager
         }
     }
 
+    // Stub class for trap sprites - SpriteTraps was referenced but not defined
+    public class SpriteTraps : SpriteMap
+    {
+        public bool IsMapLoop = false;
+        public BalloonPic2[] pics = new BalloonPic2[0];
+        public List<BalloonPic2> picList = new List<BalloonPic2>();
+
+        public override void BaseCreate()
+        {
+            base.BaseCreate();
+        }
+
+        public virtual void Attack()
+        {
+            // Trap attack - stub
+        }
+
+        public override List<RectangleF> GetPhyList()
+        {
+            return new List<RectangleF>();
+        }
+    }
+
+    // Additional sprite trap types referenced in MapManager
+    public class SpriteTrap_BingShuang : SpriteTraps
+    {
+        public override void BaseCreate()
+        {
+            base.BaseCreate();
+        }
+    }
+
+    public class SpriteTrap_ZhiZhu : SpriteTraps
+    {
+        public override void BaseCreate()
+        {
+            base.BaseCreate();
+        }
+    }
+
+    public class SpriteTrap_HuoYan : SpriteTraps
+    {
+        public override void BaseCreate()
+        {
+            base.BaseCreate();
+        }
+    }
+
+    public class SpriteTrap_JiGuang : SpriteTraps
+    {
+        public float left = 0;
+        public float right = 0;
+        public float top = 0;
+        public float bottom = 0;
+        public float dirLeft = 0;
+        public float dirRight = 0;
+        public float dirTop = 0;
+        public float dirBottom = 0;
+        public int time = 0;
+        public int pastTime = 0;
+        public int bstTime = 0;
+        public int sprTime = 0;
+        public int offsetTime = 0;
+
+        public override void BaseCreate()
+        {
+            base.BaseCreate();
+        }
+
+        public override List<RectangleF> GetPhyList()
+        {
+            List<RectangleF> rects = new List<RectangleF>();
+            if (Poi_A == 1)
+            {
+                if (dirTop >= 60)
+                {
+                    rects.Add(new RectangleF(x + pic_dx + 7.5f, y + pic_dy + 14 - dirTop, 45, dirTop));
+                }
+                if (dirBottom >= 60)
+                {
+                    rects.Add(new RectangleF(x + pic_dx + 7.5f, y + pic_dy + 47, 45, dirBottom));
+                }
+            }
+            return rects;
+        }
+    }
 }

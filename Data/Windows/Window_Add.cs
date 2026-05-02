@@ -3,14 +3,15 @@ using Data.MapsManager;
 using Data.PPDevices;
 using Data.Resources;
 using Room;
-using SharpDX.Direct3D9;
+using Data.DXRender;
+using Texture = Data.DXRender.Texture9;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Color = SharpDX.Color;
+using Color = Vortice.Mathematics.Color4;
 
 namespace Data.Windows
 {
@@ -112,7 +113,6 @@ namespace Data.Windows
             type = (int)SpriteType.String;
             this.alpha = 1.0f;
             this.color = new Color(color);
-            this.color.A = (byte)alpha;
             this.TextType = Type;
             this.str = str;
             this.x = x;

@@ -1,156 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2E27E5FC-41A4-4AB7-A9B0-8581506B96F5}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Data</RootNamespace>
     <AssemblyName>Data</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Nullable>disable</Nullable>
+    <Configurations>Debug;Release</Configurations>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharpDX\Microsoft.DirectX.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.DirectX.DirectSound, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharpDX\Microsoft.DirectX.DirectSound.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharpDX\SharpDX.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Animation, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharpDX\SharpDX.Animation.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Desktop, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharpDX\SharpDX.Desktop.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Direct3D9, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharpDX\SharpDX.Direct3D9.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.DirectSound, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharpDX\SharpDX.DirectSound.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.DXGI, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharpDX\SharpDX.DXGI.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Mathematics, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SharpDX\SharpDX.Mathematics.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+      </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Vortice.Direct3D9" Version="*" />
+    <PackageReference Include="Vortice.Mathematics" Version="2.1.0" />
+    <PackageReference Include="Vortice.DirectSound" Version="*" />
+    <PackageReference Include="System.Drawing.Common" Version="*" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cameras\Camera.cs" />
-    <Compile Include="DXRender\Font.cs" />
-    <Compile Include="DXRender\RenderEngine.cs" />
-    <Compile Include="DXRender\RenderExt.cs" />
-    <Compile Include="DXRender\Shader.cs" />
-    <Compile Include="DXRender\Sprite.cs" />
-    <Compile Include="DXRender\VertexReflection.cs" />
-    <Compile Include="Globals\Globals.cs" />
-    <Compile Include="Globals\GlobalsB.cs" />
-    <Compile Include="Inputs\Input.cs" />
-    <Compile Include="MapsManager\Layer.cs" />
-    <Compile Include="MapsManager\MapManager.cs" />
-    <Compile Include="MapsManager\SpriteMap.cs" />
-    <Compile Include="MapsManager\SpriteMap_Other.cs" />
-    <Compile Include="MapsManager\SpriteTraps.cs" />
-    <Compile Include="PPDevices\PPDevice.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Replays\Replay.cs" />
-    <Compile Include="Resources\ResItem.cs" />
-    <Compile Include="Resources\ResManager.cs" />
-    <Compile Include="Resources\ResPic.cs" />
-    <Compile Include="Rooms\Room.cs" />
-    <Compile Include="Sounds\EngineSound.cs" />
-    <Compile Include="Sounds\Sound.cs" />
-    <Compile Include="Sounds\SoundEngine.cs" />
-    <Compile Include="Sounds\WavFileReader.cs" />
-    <Compile Include="Windows\Window_Add.cs" />
-    <Compile Include="Windows\Window_List.cs" />
-    <Compile Include="XML\Element.cs" />
-    <Compile Include="XML\ItemPic.cs" />
-    <Compile Include="XML\Maps.cs" />
-    <Compile Include="XML\SpritePic.cs" />
-    <Compile Include="XML\XmlManager.cs" />
-    <Compile Include="XML\XmlPlayer.cs" />
+    <ProjectReference Include="..\ClientPublic\Client.csproj" />
+    <ProjectReference Include="..\Room\Room.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ClientPublic\Client.csproj">
-      <Project>{427EE0DD-2F81-45E7-A779-B3A27B801C11}</Project>
-      <Name>Client</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Room\Room.csproj">
-      <Project>{E53C9C1E-8577-49D6-9B83-4F2B2C404CAF}</Project>
-      <Name>Room</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SharpDX\Microsoft.DirectX.DirectSound.dll" />
-    <Content Include="SharpDX\Microsoft.DirectX.DirectSound.xml" />
-    <Content Include="SharpDX\Microsoft.DirectX.dll" />
-    <Content Include="SharpDX\Microsoft.DirectX.xml" />
-    <Content Include="SharpDX\SharpDX.Animation.dll" />
-    <Content Include="SharpDX\SharpDX.Animation.xml" />
-    <Content Include="SharpDX\SharpDX.D3DCompiler.dll" />
-    <Content Include="SharpDX\SharpDX.D3DCompiler.xml" />
-    <Content Include="SharpDX\SharpDX.Desktop.dll" />
-    <Content Include="SharpDX\SharpDX.Desktop.xml" />
-    <Content Include="SharpDX\SharpDX.Direct3D9.dll" />
-    <Content Include="SharpDX\SharpDX.Direct3D9.xml" />
-    <Content Include="SharpDX\SharpDX.DirectComposition.dll" />
-    <Content Include="SharpDX\SharpDX.DirectComposition.xml" />
-    <Content Include="SharpDX\SharpDX.DirectManipulation.dll" />
-    <Content Include="SharpDX\SharpDX.DirectManipulation.xml" />
-    <Content Include="SharpDX\SharpDX.DirectSound.dll" />
-    <Content Include="SharpDX\SharpDX.DirectSound.xml" />
-    <Content Include="SharpDX\SharpDX.dll" />
-    <Content Include="SharpDX\SharpDX.DXGI.dll" />
-    <Content Include="SharpDX\SharpDX.DXGI.xml" />
-    <Content Include="SharpDX\SharpDX.Mathematics.dll" />
-    <Content Include="SharpDX\SharpDX.Mathematics.xml" />
-    <Content Include="SharpDX\SharpDX.xml" />
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

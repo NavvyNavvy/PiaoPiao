@@ -12,7 +12,9 @@ using System.Text;
 using Room;
 using Data.Windows;
 using System.Drawing;
-using SharpDX.Direct3D9;
+using Data.DXRender;
+using Vortice.Mathematics;
+using Color4 = Vortice.Mathematics.Color4;
 using Data.MapsManager;
 using ClientPublic;
 using Data.Replays;
@@ -107,11 +109,11 @@ namespace Data.Globals
             soundManager = s;
         }
 
-        public static Texture Load_Bitmap_FromFile(string path, string file)
+        public static Texture9 Load_Bitmap_FromFile(string path, string file)
         {
             return Load_Bitmap_FromFile(path + file);
         }
-        public static Texture Load_Bitmap_FromFile(string file)
+        public static Texture9 Load_Bitmap_FromFile(string file)
         {
             file = file.Replace("tga", "png");
             file = file.Replace("Tga", "png");
@@ -174,7 +176,7 @@ namespace Data.Globals
             if (IsDebug)
                 GetPPDevice().BitBlt_Rect_Pink(pos, 1, 1);
         }
-        public static void BitBlt_Str(string str, Rectangle rect, SharpDX.Color color, int width, int height, string ZiTi = "宋体")
+        public static void BitBlt_Str(string str, Rectangle rect, Color4 color, int width, int height, string ZiTi = "宋体")
         {
             var p = ppDevice;
             p.BitBlt(str, rect, color, width, height, ZiTi);

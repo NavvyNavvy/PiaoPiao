@@ -1,4 +1,6 @@
-﻿using SharpDX.Direct3D9;
+﻿using Vortice.Direct3D9;
+using Data.DXRender;
+using Texture9 = Data.DXRender.Texture9;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -86,11 +88,11 @@ namespace Data.Globals
             return n;
         }
 
-        public static Texture Load_Bitmap_FromFile(string path, string file)
+        public static Texture9 Load_Bitmap_FromFile(string path, string file)
         {
             return Load_Bitmap_FromFile(path + file);
         }
-        public static Texture Load_Bitmap_FromFile(string file)
+        public static Texture9 Load_Bitmap_FromFile(string file)
         {
             file = file.Replace("tga", "png");
             file = file.Replace("Tga", "png");

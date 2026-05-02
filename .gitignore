@@ -1,0 +1,40 @@
+# .NET 8.0 Build outputs
+bin/
+obj/
+
+# IDE
+.idea/
+*.user
+*.suo
+.vs/
+
+# NuGet
+*.nupkg
+packages/
+
+# Build logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local config (may contain secrets)
+**/appsettings.*.json
+!**/appsettings.json
+
+# Claude Code
+.claude/
+
+# .NET SDK
+global.json
+
+# Local settings
+MainC/Setting/
+
+# Player data (user-specific)
+Setting/PlayerData/
+!Setting/PlayerData/.gitkeep
+
+# Rider
+*.sln.iml
